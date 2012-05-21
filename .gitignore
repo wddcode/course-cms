@@ -1,0 +1,4 @@
+# ignore
+.DS_Store
+.com.aptana.*
+tmp/*
