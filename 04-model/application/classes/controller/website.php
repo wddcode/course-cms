@@ -34,8 +34,6 @@ abstract class Controller_Website extends Controller_Template {
 	{
 
 		// Set default Scripts and Styles
-		
-		/**/
 		$js_config = Kohana::$config->load('js');
 		$css_config = Kohana::$config->load('css');
 
@@ -58,6 +56,25 @@ abstract class Controller_Website extends Controller_Template {
 			$this->t->head->set('js', $js);
 			$this->t->head->set('stylesheets', $stylesheets);
 		}
+		
+		
+		
+		
+		// navigation
+		$navigation = Kohana::$config->load('navigation');
+		print Debug::vars($navigation->nodes);
+		
+		// $current_uri = $this->request->uri();
+
+		foreach($navigation->nodes as &$node)
+		{
+			if($node['url'] == $current_uri)
+			{
+				// $node['active'] = TRUE;
+			}
+		}
+		
+		// $this->t->menu->nodes = $navigation->nodes;
 		
 
 		parent::after();

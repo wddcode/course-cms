@@ -12,15 +12,15 @@ admin.settings.wysiwyg_editor = 'tinymce';
 admin.base.init = function() {
 
 	if(admin.settings.wysiwyg_editor == 'wymeditor') {
-		admin.base.wymeditor($('#content_html'));
+		admin.base.wymeditor($('#content_main'));
 	}
 
 	if(admin.settings.wysiwyg_editor == 'tinymce') {
-		admin.base.tinymce($('#content_html'));
+		admin.base.tinymce($('#content_main'));
 	}
 
 	if(admin.settings.wysiwyg_editor == 'epiceditor') {
-		admin.base.epiceditor($('#content_html'));
+		admin.base.epiceditor($('#content_main'));
 	}
 
 	if(admin.settings.wysiwyg_editor != 'epiceditor') {
@@ -34,7 +34,7 @@ admin.base.wymeditor = function(element) {
 
 	element.wymeditor({
 
-		stylesheet : '/wdd/cms/www_root/static/css/lib/bootstrap/bootstrap.min.css',
+		stylesheet : '/course-cms/09-cms/www_root/static/css/lib/bootstrap/bootstrap.min.css',
 		postInit : function(wym) {
 
 			jQuery(wym._box).find(wym._options.containersSelector).removeClass('wym_dropdown').addClass('wym_panel').find('h2 > span').remove();
@@ -50,7 +50,7 @@ admin.base.tinymce = function(element) {
 
 	element.tinymce({
 		// Location of TinyMCE script
-		script_url : '/wdd/cms/www_root/static/js/lib/tiny_mce/tiny_mce.js',
+		script_url : '/course-cms/09-cms/www_root/static/js/lib/tiny_mce/tiny_mce.js',
 
 		// General options
 		// General options
@@ -67,7 +67,7 @@ admin.base.tinymce = function(element) {
 		theme_advanced_toolbar_align : "left",
 		theme_advanced_statusbar_location : "bottom",
 		theme_advanced_resizing : true,
-		content_css : "/wdd/cms/www_root/static/css/lib/bootstrap/bootstrap.min.css",
+		content_css : "/course-cms/09-cms/www_root/static/css/lib/bootstrap/bootstrap.min.css",
 		visualblocks_default_state : true,
 
 		// Schema is HTML5 instead of default HTML4
@@ -147,7 +147,7 @@ admin.base.epiceditor = function(element) {
 			name : ee_instance,
 			defaultContent : ee_content
 		},
-		basePath : '/wdd/cms/www_root/static/js/lib/epiceditor',
+		basePath : '/course-cms/09-cms/www_root/static/js/lib/epiceditor',
 		themes : {
 			// editor : '/css/epiceditor/editor-custom.css',
 			// preview : '/css/epiceditor/preview-custom.css'
@@ -175,5 +175,5 @@ admin.base.epiceditor.update = function(ee) {
 	$('#content_markdown').val(ee.get('editor').value);
 	
 	$('#markdown_preview').html(ee_html);
-	$('#content_html').val(ee_html);
+	$('#content_main').val(ee_html);
 };

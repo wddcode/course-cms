@@ -101,14 +101,14 @@ class Controller_Page extends Controller_Website {
 			}
 			
 			
-			// testing with content_html
-			$inner_html .= $page->content_html;
+			// testing with content_main
+			$inner_html .= $page->content_main;
 			
 			
 			
 			
 			// 'plugins'
-			if($page->slideshow_enabled AND $page->slideshow_directory AND 1 === 2)
+			if($page->slideshow_enabled AND $page->slideshow_directory)
 			{
 				
 				$data_config = Kohana::$config->load('data');

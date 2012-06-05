@@ -8,7 +8,8 @@ abstract class Controller_Master extends Controller {
 		
 		$this->session = Session::instance();
 		
-		if($this->session->get('counter', false))
+		
+		if($this->session->get('counter') > 0)
 		{
 			$this->session->set('counter', $this->session->get('counter') + 1);
 		} else {
@@ -21,6 +22,7 @@ abstract class Controller_Master extends Controller {
     public function after()
     {       
         parent::after();
+
     }
  
 }

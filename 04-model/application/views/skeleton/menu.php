@@ -19,7 +19,7 @@
 						} else {
 							$html .= '<li>';	
 						}
-						$html .= Html::anchor($node->url, $node->name);
+						$html .= Html::anchor($node->url, $node->title);
 						$html .= '</li>';
 					}
 					print $html;

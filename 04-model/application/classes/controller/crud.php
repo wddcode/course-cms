@@ -13,7 +13,8 @@ class Controller_Crud extends Controller_Master {
 		print Debug::vars('crud/create');
 		
 		$d = ORM::factory('dummy');
-		$d->name = 'Mein Test Eintrag...';
+		
+		$d->title = 'Mein Test Eintrag...';
 		$d->save();	
 		
 		print Debug::vars('dummy created - id: ' . $d->id);
@@ -24,14 +25,14 @@ class Controller_Crud extends Controller_Master {
 		
 		print Debug::vars('crud/read');
 		
-		$d = ORM::factory('dummy')->where('id', '=', 6)->find();
+		$d = ORM::factory('dummy')->where('id', '=', 3 )->find();
 		
 		if(!$d->loaded())
 		{
 			print Debug::vars(404);
 			return FALSE;
 		} else {
-			print Debug::vars('dummy ok - name: ' . $d->name);
+			print Debug::vars('dummy ok - name: ' . $d->title);
 		}
 	}
 
@@ -40,14 +41,15 @@ class Controller_Crud extends Controller_Master {
 		
 		print Debug::vars('crud/update');
 		
-		$d = ORM::factory('dummy')->where('id', '=', 6)->find();
+		$d = ORM::factory('dummy')->where('id', '=', 3)->find();
 		
 		if(!$d->loaded())
 		{
 			print Debug::vars(404);
 			return FALSE;
 		} else {
-			$d->name = 'Aktualsierter Eintrag.';
+			$d->title = 'Unser neuer Titel!!';
+			$d->content = 'Mein Inhalt';
 			$d->save();
 			print Debug::vars('dummy updated - id: ' . $d->id);
 		}

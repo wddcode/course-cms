@@ -21,4 +21,26 @@ class Controller_Static extends Controller_Website {
 		
 	}
 
+	public function action_test()
+	{
+		
+
+		$dummy_id = $this->request->param('id', FALSE);
+		
+		
+		$dummy = ORM::factory('dummy')->where('id', '=', $dummy_id)->find();
+		
+		$inner_html = View::factory('element/dummy_detail', array('dummy' => $dummy));
+		$inner_html->bind('links', $links);
+		
+		$links = ORM::factory('dummy')->find_all();
+
+		
+		$this->page_title = $dummy->title;
+		$this->template->inner = $inner_html;
+		
+		//$this->auto_render = FALSE;
+		
+	}
+
 }

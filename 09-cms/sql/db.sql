@@ -25,7 +25,7 @@ CREATE TABLE `pages` (
   `slug` varchar(64) DEFAULT NULL,
   `name` varchar(256) DEFAULT NULL,
   `subtitle` varchar(1024) DEFAULT NULL,
-  `content_html` longtext,
+  `content_main` longtext,
   `content_markdown` longtext,
   `slideshow_enabled` tinyint(1) NOT NULL DEFAULT '0',
   `slideshow_directory` varchar(1024) DEFAULT NULL,

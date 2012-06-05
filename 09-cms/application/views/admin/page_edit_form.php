@@ -104,11 +104,11 @@
 		</div>
 		
 		<!-- HTML editor -->
-		<div class="control-group <?php print(Arr::get($errors, 'content_html') ? 'error' : '');?>">
+		<div class="control-group <?php print(Arr::get($errors, 'content_main') ? 'error' : '');?>">
 			<label class="control-label" for="name">Content HTML</label>
 			<div class="controls">
-				<textarea class="input-xlarge" id="content_html" name="content_html" style="width: 100%; height: 300px;"><?php print Arr::get($values, 'content_html');?></textarea>
-				<label for="content_html" class="error"><?php print Arr::get($errors, 'content_html'); ?></label>
+				<textarea class="input-xlarge" id="content_main" name="content_main" style="width: 100%; height: 300px;"><?php print Arr::get($values, 'content_main');?></textarea>
+				<label for="content_main" class="error"><?php print Arr::get($errors, 'content_main'); ?></label>
 			</div>
 		</div>
 		

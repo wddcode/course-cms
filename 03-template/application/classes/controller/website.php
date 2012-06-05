@@ -34,18 +34,20 @@ abstract class Controller_Website extends Controller_Template {
 
 		// Set default Scripts and Styles
 		
-		/*
+		
 		$js_config = Kohana::$config->load('js');
 		$css_config = Kohana::$config->load('css');
-
+		
+		
 		$js = '';
 		$stylesheets = '';
 
 		foreach($js_config['script'] as $script)
 		{
+			//print Debug::vars($script);
 			$js .= Html::script($js_config['js_path'] . $script) . "\r\n";
 		}
-
+		
 		foreach($css_config['stylesheet'] as $stylesheet)
 		{
 			$stylesheets .= Html::style($css_config['css_path'] . $stylesheet) . "\r\n";
@@ -57,7 +59,6 @@ abstract class Controller_Website extends Controller_Template {
 			$this->t->head->set('js', $js);
 			$this->t->head->set('stylesheets', $stylesheets);
 		}
-		*/
 
 		parent::after();
 

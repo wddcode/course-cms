@@ -17,15 +17,17 @@ class Controller_Page extends Controller_Website {
 	{
 		$this->auto_render = FALSE;
 		
+		$dummy_id = $this->request->param('id', FALSE);
+		
 		$d = ORM::factory('dummy');
-		$d->where('id', '=', 1)->find();
+		$d->where('id', '=', $dummy_id)->find();
 		
 		print Debug::vars('Loaded: ', $d->loaded());
 
 		if($d->loaded())
 		{
 			print Debug::vars($d->id);
-			print Debug::vars($d->name);
+			print Debug::vars($d->title);
 		} else {
 			
 			$this->response->status(404);
@@ -46,7 +48,7 @@ class Controller_Page extends Controller_Website {
 		{
 			
 			$inner_html = View::factory('layout/section');
-			$inner_html->set('title', $d->name);
+			$inner_html->set('title', $d->title);
 			
 			$this->t->inner = $inner_html;
 			
@@ -76,7 +78,8 @@ class Controller_Page extends Controller_Website {
 			{
 				
 				$inner_html = View::factory('layout/section');
-				$inner_html->set('title', $d->name);
+				$inner_html->set('title', $d->title);
+				$inner_html->set('content_main', $d->content);
 				
 				$this->t->inner = $inner_html;
 				
@@ -98,7 +101,7 @@ class Controller_Page extends Controller_Website {
 			foreach($d as $dummy)
 			{
 				$content_entry = '<h2>';
-				$content_entry .= HTML::anchor('/page/test_tpl_listing/' . $dummy->id, $dummy->name);
+				$content_entry .= HTML::anchor('/page/test_tpl_listing/' . $dummy->id, $dummy->title);
 				$content_entry .= '</h2>';
 				
 				$content_main .= $content_entry;
@@ -118,13 +121,13 @@ class Controller_Page extends Controller_Website {
 		foreach($items as $item)
 		{
 			$nav_item = new ArrayObject;
-			$nav_item->name = $item->name;
+			$nav_item->title = $item->title;
 			$nav_item->url = '/page/test_tpl_listing/' . $item->id;
 			$nav_item->active = ($dummy_id == $item->id) ? true : false;
 			$navigation->append($nav_item);
 		}
 		
-		// $this->t->menu->navigation = $navigation;
+		$this->t->menu->navigation = $navigation;
 	
 	}
 
