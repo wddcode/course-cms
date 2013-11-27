@@ -83,7 +83,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  caching     enable or disable internal caching                 FALSE
  */
 Kohana::init(array(
-	'base_url'   => '/course-cms/02-view/www_root/',
+	'base_url'   => '/playground/course-cms/02-view/www_root/',
 	'index_file' => FALSE,
 	'cache_dir' => APPPATH.'../../tmp/cache',
 	'errors' => TRUE,

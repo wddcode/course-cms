@@ -2,7 +2,7 @@
 RewriteEngine On
 
 # Installation directory
-RewriteBase /course-cms/01-controller/www_root/
+RewriteBase /playground/course-cms/01-controller/www_root/
 
 # Protect hidden files from being viewed
 <Files .*>

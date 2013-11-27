@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Static extends Controller_Master {
+class Controller_Welcome extends Controller_Master {
 
 	public function action_index()
 	{	
